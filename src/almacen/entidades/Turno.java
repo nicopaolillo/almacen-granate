@@ -26,4 +26,5 @@ public class Turno {
 	public void setOcupado(boolean ocupado) {
 		this.ocupado = ocupado;
 	}
+	
 }
