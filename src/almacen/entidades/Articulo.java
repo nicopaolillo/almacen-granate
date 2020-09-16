@@ -8,6 +8,14 @@ public class Articulo {
 	private String codBarras;
 	private double precio;
 	
+	//constructor
+	public Articulo(int id,String nombre,String codBarras,double precio) {
+		this.id=id;
+		this.nombre=nombre;
+		this.codBarras=codBarras;
+		this.precio=precio;
+	}
+	
 	//get y set
 	public int getId() {
 		return id;

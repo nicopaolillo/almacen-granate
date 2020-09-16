@@ -7,6 +7,13 @@ public class Turno {
 	private LocalTime hora;
 	private boolean ocupado;
 	
+	//constructor
+	public Turno(LocalDate dia, LocalTime hora, boolean ocupado) {
+		this.dia=dia;
+		this.hora=hora;
+		this.ocupado=ocupado;
+	}
+	
 	//get y set
 	public LocalDate getDia() {
 		return dia;

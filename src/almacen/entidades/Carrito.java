@@ -1,5 +1,6 @@
 package almacen.entidades;
 import java.time.*;
+import java.util.*;
 public class Carrito {
 
 	//atributos
@@ -9,8 +10,21 @@ public class Carrito {
 	private boolean cerrado;
 	private double descuento;
 	private Cliente cliente;
-	private ItemCarrito listaItemCarrito;
+	private List<ItemCarrito> listaItemCarrito;
 	private Entrega entrega;
+	
+	//constructor
+	public Carrito(int id,LocalDate fecha, LocalTime hora,boolean cerrado,double descuento,
+	 Cliente cliente,Entrega entrega) {
+		this.id=id;
+		this.fecha=fecha;
+		this.hora=hora;
+		this.cerrado=cerrado;
+		this.descuento=descuento;
+		this.cliente=cliente;
+		this.listaItemCarrito=new ArrayList();
+		this.entrega=entrega;
+	}
 	
 	//get y set
 	public int getId() {
@@ -49,10 +63,10 @@ public class Carrito {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public ItemCarrito getListaItemCarrito() {
+	public List<ItemCarrito> getListaItemCarrito() {
 		return listaItemCarrito;
 	}
-	public void setListaItemCarrito(ItemCarrito listaItemCarrito) {
+	public void setListaItemCarrito(List<ItemCarrito> listaItemCarrito) {
 		this.listaItemCarrito = listaItemCarrito;
 	}
 	public Entrega getEntrega() {

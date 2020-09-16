@@ -5,6 +5,12 @@ public class Ubicacion {
 	//atributos
 	private double latitud;
 	private double longitud;
+	
+	//constructor
+	public Ubicacion(double latitud,double longitud) {
+		this.latitud=latitud;
+		this.longitud=longitud;
+	}
 
 	//get y set
 	public double getLatitud() {

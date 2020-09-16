@@ -8,6 +8,14 @@ public class Envio extends Entrega{
 	private double costo;
 	private Ubicacion ubicacion;
 	
+	//constructor
+	public Envio (LocalTime horaHasta, LocalTime horaDesde, double costo, Ubicacion ubicacion) {
+		this.horaHasta=horaHasta;
+		this.horaDesde=horaDesde;
+		this.costo=costo;
+		this.ubicacion=ubicacion;
+	}
+	
 	//get y set
 	public LocalTime getHoraHasta() {
 		return horaHasta;

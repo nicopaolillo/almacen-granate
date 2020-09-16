@@ -6,6 +6,13 @@ public class Cliente extends Actor {
 	private String apellido;
 	private String nombre;
 	private int dni;
+	
+	//constructor
+	public Cliente(String apellido,String nombre, int dni) {
+		this.apellido=apellido;
+		this.nombre=nombre;
+		this.dni=dni;
+	}
 
 	//get y set
 	public String getApellido() {

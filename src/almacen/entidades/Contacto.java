@@ -6,6 +6,13 @@ public class Contacto {
 	private String email;
 	private String celular;
 	private Ubicacion ubicacion;
+	
+	//constructor
+	public Contacto(String email,String celular,Ubicacion ubicacion) {
+		this.email=email;
+		this.celular=celular;
+		this.ubicacion=ubicacion;
+	}
 
 	//get y set
 	public String getEmail() {

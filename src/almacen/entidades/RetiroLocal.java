@@ -5,6 +5,11 @@ public class RetiroLocal extends Entrega {
 	//atributos
 	private LocalTime horaEntrega;
 	
+	//constructor
+	public RetiroLocal (LocalTime horaEntrega) {
+		this.horaEntrega=horaEntrega;
+	}
+	
 	//get y set
 	public LocalTime getHoraEntrega() {
 		return horaEntrega;
