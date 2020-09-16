@@ -12,6 +12,7 @@ public class Comercio extends Actor {
 	private int porcentajeDescuentoEfectivo;
 	private DiaRetiro listaDiaDeRetiro;
 	private Carrito listaCarrito;
+	private Articulo listArticulo;
 	
 	//get y set
 	public String getNombreComercio() {
