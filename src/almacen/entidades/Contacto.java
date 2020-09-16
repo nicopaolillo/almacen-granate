@@ -33,4 +33,5 @@ public class Contacto {
 	public void setUbicacion(Ubicacion ubicacion) {
 		this.ubicacion = ubicacion;
 	}
+	
 }
