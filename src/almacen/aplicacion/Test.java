@@ -10,7 +10,7 @@ Cliente cliente = new Cliente("Pacheco","Horacio",35248722);
 
 cliente.setDni(41237024);
 
-System.out.println(cliente.validarDni("41237024"));
+System.out.println(cliente.validarDni(41237024));
 		
 	}
 
