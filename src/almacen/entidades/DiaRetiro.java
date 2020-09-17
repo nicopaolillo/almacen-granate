@@ -1,14 +1,14 @@
 package almacen.entidades;
 import java.time.*;
 public class DiaRetiro {
-	
-    //atributos
+
+	//atributos
 	private int id;
 	private int diaSemana;
 	private LocalTime horaDesde;
 	private LocalTime horaHasta;
 	private int intervalo;
-	
+
 	//constructor
 	public DiaRetiro(int id,int diaSemana, LocalTime horaDesde,LocalTime horaHasta,int intervalo) {
 		this.id=id;
@@ -17,7 +17,7 @@ public class DiaRetiro {
 		this.horaHasta=horaHasta;
 		this.intervalo=intervalo;
 	}
-	
+
 	//get y set
 	public int getId() {
 		return id;
@@ -48,5 +48,8 @@ public class DiaRetiro {
 	}
 	public void setIntervalo(int intervalo) {
 		this.intervalo = intervalo;
+	}
+	public String toString() {
+		return "\nDiaRetiro id: " + id + ", diaSemana: " + diaSemana + ", horaDesde: " + horaDesde + ", horaHasta: " + horaHasta + ", intervalo: " + intervalo;
 	}
 }

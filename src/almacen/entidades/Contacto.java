@@ -6,7 +6,7 @@ public class Contacto {
 	private String email;
 	private String celular;
 	private Ubicacion ubicacion;
-	
+
 	//constructor
 	public Contacto(String email,String celular,Ubicacion ubicacion) {
 		this.email=email;
@@ -33,5 +33,5 @@ public class Contacto {
 	public void setUbicacion(Ubicacion ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	
+
 }

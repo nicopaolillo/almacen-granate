@@ -44,7 +44,7 @@ public class Cliente extends Actor {
 		}
 		return cond;
 	}
-	
+
 	public boolean validarDni (long dni)throws Exception{
 		boolean cond=false;
 		if(dni >= 00000000 && dni <= 99999999) {
