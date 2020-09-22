@@ -16,6 +16,13 @@ public class Articulo {
 		this.precio=precio;
 	}
 	
+	//equals
+		public boolean equals(Articulo articulo) {
+			if(id==articulo.id) return true;
+			else return false;
+		}
+	
+	
 	//get y set
 	public int getId() {
 		return id;

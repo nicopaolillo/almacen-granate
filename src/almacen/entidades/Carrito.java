@@ -75,4 +75,24 @@ public class Carrito {
 	public void setEntrega(Entrega entrega) {
 		this.entrega = entrega;
 	}
+	
+	
+	public boolean agregar(Articulo articulo, int cantidad) {
+		boolean bandera = false;
+		int contador = 0;
+		while (contador < listaItemCarrito.size() && bandera == false) {
+			if (listaItemCarrito.get(contador).getArticulo().equals(articulo) == true) {
+				listaItemCarrito.get(contador).setCantidad(listaItemCarrito.get(contador).getCantidad() + cantidad);
+				bandera = true;
+			} else {
+				contador++;
+			}
+		}
+		if (bandera == false) {
+			listaItemCarrito.add(new ItemCarrito(articulo, cantidad));
+		}
+		return bandera;
+	}
+
+	
 }
