@@ -17,4 +17,5 @@ public class RetiroLocal extends Entrega {
 	public void setHoraEntrega(LocalTime horaEntrega) {
 		this.horaEntrega=horaEntrega;
 	}
+
 }

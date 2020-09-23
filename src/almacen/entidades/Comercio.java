@@ -158,4 +158,6 @@ public class Comercio extends Actor {
 		}
 		return cond;
 	}
+	
+	
 }

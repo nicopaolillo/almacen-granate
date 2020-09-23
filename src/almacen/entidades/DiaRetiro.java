@@ -52,4 +52,5 @@ public class DiaRetiro {
 	public String toString() {
 		return "\nDiaRetiro id: " + id + ", diaSemana: " + diaSemana + ", horaDesde: " + horaDesde + ", horaHasta: " + horaHasta + ", intervalo: " + intervalo;
 	}
+	
 }

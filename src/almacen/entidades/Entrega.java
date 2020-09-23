@@ -26,5 +26,6 @@ abstract public class Entrega {
 	public void setEfectivo(boolean efectivo) {
 		this.efectivo = efectivo;
 	}
+
 	
 }

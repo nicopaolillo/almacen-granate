@@ -94,5 +94,9 @@ public class Carrito {
 		return bandera;
 	}
 
-	
+	public void mostrarCarrito() {
+		for(ItemCarrito i : listaItemCarrito) {
+			System.out.println(i.getArticulo().getNombre()+" "+i.getCantidad()+" unidad/es");
+		}
+	}
 }

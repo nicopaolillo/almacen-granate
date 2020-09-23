@@ -23,14 +23,16 @@ public class Test {
 		comercio.agregarDiaRetiro(14, LocalTime.now(), LocalTime.now(), 1);
 		comercio.agregarDiaRetiro(12, LocalTime.now(), LocalTime.now(), 7);
 		
-        System.out.println("Digito verificador: "+comercio.validarIdentificadorUnico("2041237024"));
-		System.out.println("verificador de DNI: "+cliente.validarDni(41237024));
-		System.out.println(comercio.traerDiaRetiro());
+      //  System.out.println("Digito verificador: "+comercio.validarIdentificadorUnico("2041237024"));
+	 //   System.out.println("verificador de DNI: "+cliente.validarDni(41237024));
+	//    System.out.println(comercio.traerDiaRetiro());
 
 		
-		System.out.println(carrito.agregar(articulo1, 4));
-		System.out.println(carrito.agregar(articulo2, 1));
-		System.out.println(carrito.agregar(articulo1, 4));
+		carrito.agregar(articulo1, 4);
+		carrito.agregar(articulo2, 1);
+		carrito.agregar(articulo1, 4);
+		
+		carrito.mostrarCarrito();
 		
 		
 	}
