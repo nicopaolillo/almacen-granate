@@ -32,7 +32,9 @@ public class Test {
 		carrito.agregar(articulo2, 1);
 		carrito.agregar(articulo1, 4);
 		
-		carrito.mostrarCarrito();
+		double total=carrito.calcularTotalCarrito();
+	//	System.out.println("total a pagar: "+total);
+   //	carrito.mostrarCarrito();
 		
 		
 	}

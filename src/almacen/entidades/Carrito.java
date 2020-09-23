@@ -99,4 +99,14 @@ public class Carrito {
 			System.out.println(i.getArticulo().getNombre()+" "+i.getCantidad()+" unidad/es");
 		}
 	}
+	
+	public double calcularTotalCarrito() {
+		double total=0;
+		for(ItemCarrito i : listaItemCarrito) {
+			total=total + i.getArticulo().getPrecio() * i.getCantidad();
+		}
+		return total;
+	}
+	
+	
 }
