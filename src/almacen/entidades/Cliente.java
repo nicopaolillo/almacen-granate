@@ -13,6 +13,10 @@ public class Cliente extends Actor {
 		this.nombre=nombre;
 		this.dni=dni;
 	}
+	//constructor vacio
+	public Cliente() {
+		super();
+		}
 
 	//get y set
 	public String getApellido() {
@@ -33,29 +37,22 @@ public class Cliente extends Actor {
 	public void setDni(int dni) {
 		this.dni = dni;
 	}
-	//validar identificador
-	public boolean esNumerico(String cadena){
-		boolean cond;
-		try {
-			Integer.parseInt(cadena);
-			cond= true;
-		}catch (NumberFormatException exception) {
-			cond = false;
-		}
-		return cond;
-	}
+	// 1) validarDni
+		public boolean validarDni(long dni)throws Exception {
+			boolean cond = false;
+			if(dni >= 00000000 && dni <= 99999999) {
+				
+				cond = true;
+				
+			}else {
+				
+				throw new Exception("Error: DNI ingresado no valido ");
 
-	public boolean validarDni (long dni)throws Exception{
-		boolean cond=false;
-		if(dni >= 00000000 && dni <= 99999999) {
-			cond = true;
+			}
+			return cond;
 		}
-		else {
-			throw new Exception("Error: DNI ingresado no valido");
+
+		public String toString() {
+			return "Cliente: apellido: " + apellido + ", nombre: " + nombre + ", dni: " + dni;
 		}
-		return cond;
-	}
-	public String toString() {
-		return "Cliente: apellido=" + apellido + ", nombre=" + nombre + ", DNI=" + dni;
-	}
 }

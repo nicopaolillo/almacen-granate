@@ -25,4 +25,16 @@ public class Ubicacion {
 	public void setLongitud(double longitud) {
 		this.longitud = longitud;
 	}
+	// 17) + traerUbicacion() : Ubicacion
+	
+		public Ubicacion traerUbicacion() {
+			
+			//return new Ubicacion(latitud, longitud);
+			//Retorna el objeto donde estoy parado.
+			return this; 
+		}
+		
+		public String toString() {
+			return "Ubicacion: latitud: " + latitud + ", longitud: " + longitud;
+		}
 }

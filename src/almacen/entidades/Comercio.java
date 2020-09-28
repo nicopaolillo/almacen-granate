@@ -31,6 +31,12 @@ public class Comercio extends Actor {
 		this.listaCarrito = new ArrayList<Carrito>();
 		this.listArticulo = new ArrayList<Articulo>();
 	}
+	// Constructor vacio para realizar los testeos.
+		public Comercio() {
+			this. listaDiaDeRetiro = new ArrayList<DiaRetiro>();
+			this.listaCarrito = new ArrayList<Carrito>();
+			this.listArticulo = new ArrayList<Articulo>();
+		}
 
 	//get y set
 	public String getNombreComercio() {
@@ -129,6 +135,7 @@ public class Comercio extends Actor {
 		return listaDiaDeRetiro.add(new DiaRetiro(idDiaRetiro, diaSemana, horaDesde, horaHasta, intervalo));
 	}
 	
+	
 	public boolean validarIdentificadorUnico (String cuit) throws Exception {
 		boolean cond = false;
 		int aux;
@@ -159,5 +166,16 @@ public class Comercio extends Actor {
 		return cond;
 	}
 	
-	
+	public boolean validarIdentificadorUnico(long cuit) throws Exception {
+		boolean cond = false;
+		
+		if(cuit >= 1111111111l && cuit <= 9999999999l) {	
+			cond = true;
+		} else {
+			cond = false;
+			throw new Exception("Error: Cuit ingresado no es valido");
+
+		}
+		return cond;
+	}
 }

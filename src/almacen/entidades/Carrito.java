@@ -12,10 +12,10 @@ public class Carrito {
 	private Cliente cliente;
 	private List<ItemCarrito> listaItemCarrito;
 	private Entrega entrega;
-	
+
 	//constructor
 	public Carrito(int id,LocalDate fecha, LocalTime hora,boolean cerrado,double descuento,
-	 Cliente cliente,Entrega entrega) {
+			Cliente cliente,Entrega entrega) {
 		this.id=id;
 		this.fecha=fecha;
 		this.hora=hora;
@@ -25,7 +25,13 @@ public class Carrito {
 		this.listaItemCarrito=new ArrayList();
 		this.entrega=entrega;
 	}
-	
+
+    //constructor vacio
+	public Carrito() {
+		super();
+		this.listaItemCarrito = new ArrayList<ItemCarrito>();
+
+	}
 	//get y set
 	public int getId() {
 		return id;
@@ -75,38 +81,90 @@ public class Carrito {
 	public void setEntrega(Entrega entrega) {
 		this.entrega = entrega;
 	}
-	
-	
-	public boolean agregar(Articulo articulo, int cantidad) {
-		boolean bandera = false;
+
+
+	// 8) + agregar(Articulo articulo, int cantidad):boolean
+	public ItemCarrito traerItemCarrito(Articulo articulo) {
+		ItemCarrito item = null;
 		int contador = 0;
-		while (contador < listaItemCarrito.size() && bandera == false) {
-			if (listaItemCarrito.get(contador).getArticulo().equals(articulo) == true) {
-				listaItemCarrito.get(contador).setCantidad(listaItemCarrito.get(contador).getCantidad() + cantidad);
-				bandera = true;
+		while (contador < this.listaItemCarrito.size() && item == null) {
+			if (this.listaItemCarrito.get(contador).getArticulo().equals(articulo) == true) {
+				item = this.listaItemCarrito.get(contador);
 			} else {
 				contador++;
 			}
+
 		}
-		if (bandera == false) {
+		return item;
+	}
+
+	public boolean agregar(Articulo articulo, int cantidad) {
+		boolean bandera = false;
+
+		if (this.traerItemCarrito(articulo) == null) {
 			listaItemCarrito.add(new ItemCarrito(articulo, cantidad));
+		} else {
+			ItemCarrito item = this.traerItemCarrito(articulo);
+			item.setCantidad(item.getCantidad() + cantidad);
+			bandera = true;
 		}
 		return bandera;
 	}
 
-	public void mostrarCarrito() {
-		for(ItemCarrito i : listaItemCarrito) {
-			System.out.println(i.getArticulo().getNombre()+" "+i.getCantidad()+" unidad/es");
+	public boolean sacarDelCarrito(Articulo articulo, int cantidad) {
+
+		boolean bandera = false;
+		if (traerItemCarrito(articulo) != null) {
+			ItemCarrito item = traerItemCarrito(articulo);
+			if (item.getCantidad() - cantidad <= 0) {
+				this.listaItemCarrito.remove(item);
+			} else {
+				item.setCantidad(item.getCantidad() - cantidad);
+				bandera = true;
+			}
 		}
+		return bandera;
 	}
-	
+
+	public double calcularDescuentoEfectivo(double porcentajeDescuentoEfectivo) {
+		return (this.calcularTotalCarrito() * porcentajeDescuentoEfectivo / 100);
+	}
+
+	public double calcularDescuentoDia(int diaDescuento, double porcentajeDescuento) {
+		return (this.calcularTotalCarrito() * porcentajeDescuento / 100);
+	}
+
+	public void calcularDescuentoCarrito(int diaDescuento, double porcentajeDescuento,
+			double porcentajeDescuentoEfectivo) {
+		double descuento = 0;
+
+		if (calcularDescuentoEfectivo(porcentajeDescuentoEfectivo) < calcularDescuentoDia(diaDescuento, porcentajeDescuento)) {
+			descuento = calcularDescuentoDia(diaDescuento, porcentajeDescuento);
+
+		} else {
+			descuento = calcularDescuentoEfectivo(porcentajeDescuentoEfectivo);
+		}
+		setDescuento(descuento);
+	}
+
+	// 10) + calcularTotalCarrito() : double
 	public double calcularTotalCarrito() {
-		double total=0;
-		for(ItemCarrito i : listaItemCarrito) {
-			total=total + i.getArticulo().getPrecio() * i.getCantidad();
+		double total = 0;
+		for (ItemCarrito p : this.listaItemCarrito) {
+			total = total + p.calcularSubTotalItem();
 		}
 		return total;
 	}
-	
-	
+
+	public double totalAPagarCarrito() {
+		double total = 0;
+		total = calcularTotalCarrito() - this.descuento;
+		return total;
+	}
+
+	public String toString() {
+		return "Carrito id: " + id + ", fecha: " + fecha + ", hora: " + hora + ", cerrado: " + cerrado + ", descuento: "
+				+ descuento + ", Cliente: " + cliente + ", lstItemCarrito: " + listaItemCarrito + ", Entrega: " + entrega;
+	}
+
 }
